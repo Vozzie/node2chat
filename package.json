@@ -1,0 +1,10 @@
+{
+  "name": "node2chat",
+  "version": "0.0.0",
+  "description": "Encrypted web chat",
+  "dependencies": {
+    "socket.io": "^1.0.6"
+  },
+  "scripts": {},
+  "devDependencies": {}
+}
