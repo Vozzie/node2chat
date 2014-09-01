@@ -1,0 +1,276 @@
+
+body, html {
+	background-color: #444;
+	font-family: "Lucida Sans Unicode", "Lucida Grande", sans-serif;
+	height: 100%;
+	overflow-x: hidden;
+	width: 100%;
+}
+
+input, select, textarea {
+	border: 0;
+	font-family: "Lucida Sans Unicode", "Lucida Grande", sans-serif;
+	margin-top: 4px;
+}
+
+h1 { border-bottom: 2px dotted; padding-bottom:5px;}
+.center { text-align:center; }
+.margin { margin: 8px;}
+
+.noselect {
+	-webkit-touch-callout: none;
+	-webkit-user-select: none;
+	-khtml-user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none;
+	user-select: none;
+	cursor:default;
+}
+
+/* Login */
+
+a.login.image {
+	margin:2px;
+	width:96px;
+	height:96px;
+	background-size:96px 96px;
+	border-radius:10px;
+	display:inline;
+	text-decoration:none;
+	cursor:pointer;
+}
+
+a.login.image.jquery {
+	background: #D8D8D8 url('../img/jquery.png') no-repeat  center; 
+	float:left;
+	margin-left:52px;
+	margin-top:10px;
+}
+
+a.login.image.jqueryui {
+	background: #D8D8D8 url('../img/jquery-ui.png') no-repeat  center; 
+	float:right;
+	margin-right:52px;
+	margin-top:10px;
+}
+
+a.login.image.node{
+	background: #D8D8D8 url(../img/node.png)  no-repeat  center; 
+	float:left;
+}
+a.login.image.jsencrypt {
+	background: #D8D8D8 url('../img/jsencrypt.png') no-repeat  center; 
+	float:left;
+}
+a.login.image.socketio {
+	background: #D8D8D8 url('../img/socket-io.png') no-repeat  center; 
+	float:left;
+}
+
+a.login.menu {
+	height: 24px;
+	position: absolute;
+	text-decoration: none;
+	top: 6px;
+	width: 24px;
+}
+
+a.login.menu.info {
+	background: url("../img/info.png") no-repeat scroll 0 0 transparent;
+	left: 6px;
+}
+
+a.login.menu.options {
+	background: url("../img/settings.png") no-repeat scroll 0 0 transparent;
+	right: 6px;
+}
+
+div.login.box {
+	position: relative;
+	margin: 0 auto;
+	width: 300px;
+	background-color: #BBB;
+	padding: 7px;
+	border-radius: 20px;
+}
+
+div.login.cell {
+	display: table-cell;
+	vertical-align: middle;
+}
+
+div.login.message {
+	background-color:#D8D8D8;
+	border-radius: 9px;
+	height: 80px;
+	margin-top: 5px;
+	position:relative;
+}
+
+div.login.options {
+	display: none;
+}
+
+div.login.table {
+	display: table;
+	height: 100%;
+	left: 0px;
+	position: absolute;
+	top: 0px;
+	width: 100%;
+	-webkit-transition: opacity 1.5s ease-in, top 1s;
+	-moz-transition: opacity 1.5s ease-in, top 1s;
+	-ms-transition: opacity 1.5s ease-in, top 1s;
+	-o-transition: opacity 1.5s ease-in, top 1s;
+	transition: opacity 1.5s ease-in, top 1s;
+	opacity: 1;
+}
+
+div.login.table.hidden {
+	filter: alpha(opacity=0);
+	opacity: 0;
+	top:-2000px;
+}
+
+input[type=button].login {
+	border-radius: 10px;
+	color: #BBB;
+	font-size: 12pt;
+	height: 24px;
+	padding-bottom:24px;
+	width: 100%;
+	cursor: pointer;
+}
+
+input[type=text].login {
+	color: #444;
+	width: 296px;
+	padding: 2px;
+}
+
+label.login {
+	display: block;
+	margin-left: 20px;
+	margin-top: 5px;
+}
+
+p.login.image {
+	clear: both;
+}
+
+select.login {
+	border: 0;
+	padding: 1px;
+	width: 100%;
+}
+
+textarea.login {
+	padding: 2px;
+	width: 296px;
+	overflow: scroll;
+	height: 80px;
+	margin-top: 2px;
+}
+
+/* Chat */
+
+a.chat  {
+	bottom: 3px;
+	height: 24px;
+	position: absolute;
+	text-decoration: none;
+	width: 24px;
+}
+
+a.chat.users {
+	background: url("../img/users.png") no-repeat scroll 0 0 transparent;
+	right: 33px;
+}
+
+a.chat.options {
+	background: url("../img/settings.png") no-repeat scroll 0 0 transparent;
+	right: 6px;
+}
+
+div.chat.box {
+	display: none;
+	background-color: #FFF;
+    height: 100%;
+	left: 0px;
+	position: relative;
+	top: 0px;
+	width: 100%;
+}
+
+div.chat.text {
+	background-color: #D8D8D8;
+	bottom: 32px;
+	cursor: default;
+	overflow-y: scroll;
+	position: absolute;
+	top: 0px;
+	width: 100%;
+	margin-bottom:-2px;
+	border-bottom: 2px solid #777;
+}
+
+input.chat.input {
+	border: 1px solid;
+	bottom: 1px;
+	position:absolute;
+	width: -webkit-calc(100% - 69px);
+    width: calc(100% - 69px);
+    left: 3px;
+	padding:1px;
+	font-size: 12pt;
+}
+
+/* Effects and interactions */
+
+.login-effect {
+	-webkit-animation: blink 2s ease-in-out 0s infinite normal;
+    -moz-animation: blink 2s ease-in-out 0s infinite normal;
+    -ms-animation: blink 2s ease-in-out 0s infinite normal;
+    -o-animation: blink 2s ease-in-out 0s infinite normal;
+    animation: blink 2s ease-in-out 0s infinite normal;
+}
+
+@-webkit-keyframes blink {
+    0% { opacity:1; }
+    50%{ opacity:0.4; }
+    100% { opacity:1; }
+}
+
+@-moz-keyframes blink {
+    0% { opacity:1; }
+    50%{ opacity:0.4; }
+    100% { opacity:1; }
+}
+
+@-ms-keyframes blink {
+    0% { opacity:1; }
+    50%{ opacity:0.4; }
+    100% { opacity:1; }
+}
+
+@-o-keyframes blink {
+    0% { opacity:1; }
+    50%{ opacity:0.4; }
+    100% { opacity:1; }
+}
+
+@keyframes blink {
+    0% { opacity:1; }
+    50%{ opacity:0.4; }
+    100% { opacity:1; }
+}
+
+/* Queries */
+
+@media (min-width: 479px) {
+
+	div.login.box {
+		padding: 15px;
+	}
+	
+}
