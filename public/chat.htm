@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>	
-  <title>VibeChat</title>
+  <title>node2chat ~ encrypted web chat</title>
 <!--[if lt IE 9]>
   <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
 <![endif]-->
@@ -10,16 +10,79 @@
   <link rel="stylesheet" type="text/css" href="css/reset.css"/>
   <link rel="stylesheet" type="text/css" href="css/chat.css"/>
   <link rel="stylesheet" type="text/css" href="css/jquery-ui.css"/>
+  <script type="text/javascript" src="js/poly.js"></script>
   <script type="text/javascript" src="socket.io/socket.io.js"></script>
-  <script type="text/javascript" src="js/jquery.js"></script>
-  <script type="text/javascript" src="js/jquery-ui.js"></script>
   <script type="text/javascript" src="js/jsencrypt.js"></script>
   <script type="text/javascript" src="js/chat.js"></script>
+  <script type="text/javascript" src="js/jquery.js"></script>
+  <script type="text/javascript" src="js/jquery-ui.js"></script>
+  <script type="text/javascript" src="js/app.js"></script>
+  <script type="text/javascript">
+
+  var app = appFactory($, chatFactory);
+
+  </script>
 </head>
 <body>
 
-	
-<script>
+<div class="chat box" id="chat-box">
+	<div class="chat text" id="chat-text"></div>
+	<input class="chat input" id="chat-input" type="text" />
+	<a class="chat users noselect" href="#" id="chat-users" title="&nbsp;Users&nbsp;"></a>
+	<a class="chat options noselect" href="#" id="chat-options" title="&nbsp;Options&nbsp;"></a>
+</div>
+
+<div class="login table hidden" id="login-box">
+	<div class="login cell">
+		<div class="login box">
+			<h1 class="center noselect">node2chat</h1>
+			<a class="login menu options" id="login-options" href="#" title="&nbsp;Options&nbsp;"></a>
+			<a class="login menu info" href="info.htm" target="_blank" title="&nbsp;Info&nbsp;"></a>
+			<label class="login noselect" for="login-room">Room</label>
+			<input class="login" id="login-room" maxlength="20" type="text" autocomplete="off" value="Enter room name..." />
+			<label class="login noselect" for="login-user">Nickname</label>
+			<input class="login" id="login-user" type="text" autocomplete="off" maxlength="20" value="" />
+			<div class="login options" id="login-options-box">
+				<label class="login noselect" for="login-keysize">Key size</label>
+				<select class="login" id="login-keysize">
+					<option value="512">512</option>
+					<option value="1024" selected>1024</option>
+					<option value="2048">2048</option>
+					<option value="4096">4096</option>
+				</select>
+				<label class="login noselect" for="login-hide-room">
+					<input class="login" id="login-hide-room" type="checkbox" />
+					Hide room
+				</label>
+				<label class="login noselect" for="login-key-async">
+					<input class="login" id="login-key-async" type="checkbox" />
+					Generate key asynchronous
+				</label>
+			</div>
+			<input class="login" id="login-enter" type="button" value="Click here to enter..." disabled />
+			<div class="login message">
+				<div class="login table noselect">
+					<div class="login cell" id="login-message"></div>
+				</div>	
+			</div>
+			<a class="login image jquery noselect" href="info.htm" target="_blank" title="jQuery">&nbsp;</a>
+			<a class="login image jqueryui noselect" href="info.htm" target="_blank" title="jQuery.UI">&nbsp;</a>
+			<a class="login image socketio noselect" href="info.htm" target="_blank" title="Socket.IO">&nbsp;</a>
+			<a class="login image node noselect" href="info.htm" target="_blank" title="NodeJS">&nbsp;</a>
+			<a class="login image jsencrypt noselect" href="info.htm" target="_blank" title="JSEncrypt">&nbsp;</a>
+			<p class="login image noselect"></p>
+		</div>	
+	</div>
+</div>
+
+</body>
+</html>
+
+
+
+
+
+<!--<script>
 /*,$(document).ready(function(){
 	<div style="position:absolute;background-color:#D8D8D8;width:155px;height:130px;top:200px;" id="color-picker"></div>
 
@@ -44,58 +107,4 @@
 });
 
  */
-</script>
-
-
-<div class="chat box" id="chat-box">
-	<div class="chat text" id="chat-text"></div>
-	<input class="chat input" id="chat-input" type="text" />
-	<a class="chat users noselect" href="#" id="chat-users" title="&nbsp;Users&nbsp;"></a>
-	<a class="chat options noselect" href="#" id="chat-options" title="&nbsp;Options&nbsp;"></a>
-</div>
-
-<div class="login table hidden" id="login-box">
-	<div class="login cell">
-		<div class="login box">
-			<h1 class="center noselect">VibeChat</h1>
-			<a class="login menu options" id="login-options" href="#" title="&nbsp;Options&nbsp;"></a>
-			<a class="login menu info" href="info.htm" target="_blank" title="&nbsp;Info&nbsp;"></a>
-			<label class="login noselect" for="login-room">Room</label>
-			<input class="login" id="login-room" maxlength="20" type="text" autocomplete="off" value="Enter room name..." />
-			<label class="login noselect" for="login-user">Nickname</label>
-			<input class="login" id="login-user" type="text" autocomplete="off" maxlength="20" />
-			<div class="login options" id="login-options-box">
-				<label class="login noselect" for="login-keysize">Key size</label>
-				<select class="login" id="login-keysize">
-					<option value="512">512</option>
-					<option value="1024" selected>1024</option>
-					<option value="2048">2048</option>
-					<option value="4096">4096</option>
-				</select>
-				<label class="login noselect" for="login-publickey">Public key</label>
-				<textarea class="login" id="login-publickey" wrap="off"></textarea>
-				<label class="login noselect" for="login-privatekey">Private key</label>
-				<textarea class="login" id="login-privatekey" wrap="off"></textarea>
-				<label class="login noselect" for="login-hide-room">
-					<input class="login" id="login-hide-room" type="checkbox" />
-					Hide room
-				</label>
-			</div>
-			<input class="login" id="login-enter" type="button" value="Click here to enter..." disabled />
-			<div class="login message">
-				<div class="login table noselect">
-					<div class="login cell" id="login-message"></div>
-				</div>	
-			</div>
-			<a class="login image jquery noselect" href="info.htm" target="_blank" title="jQuery">&nbsp;</a>
-			<a class="login image jqueryui noselect" href="info.htm" target="_blank" title="jQuery.UI">&nbsp;</a>
-			<a class="login image socketio noselect" href="info.htm" target="_blank" title="Socket.IO">&nbsp;</a>
-			<a class="login image node noselect" href="info.htm" target="_blank" title="NodeJS">&nbsp;</a>
-			<a class="login image jsencrypt noselect" href="info.htm" target="_blank" title="JSEncrypt">&nbsp;</a>
-			<p class="login image noselect"></p>
-		</div>	
-	</div>
-</div>
-
-</body>
-</html>
+</script>-->

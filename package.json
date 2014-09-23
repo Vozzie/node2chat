@@ -2,8 +2,10 @@
   "name": "node2chat",
   "version": "0.0.0",
   "description": "Encrypted web chat",
+  "keywords": "chat encrypted javascript",
   "dependencies": {
-    "socket.io": "^0.9.2"
+    "socket.io": "^1.1.0",
+	"express": "^4.9.3"
   },
   "scripts": {},
   "devDependencies": {}

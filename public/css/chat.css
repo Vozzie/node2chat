@@ -185,11 +185,13 @@ a.chat  {
 a.chat.users {
 	background: url("../img/users.png") no-repeat scroll 0 0 transparent;
 	right: 33px;
+	cursor: pointer;
 }
 
 a.chat.options {
 	background: url("../img/settings.png") no-repeat scroll 0 0 transparent;
 	right: 6px;
+	cursor: pointer;
 }
 
 div.chat.box {
@@ -216,12 +218,12 @@ div.chat.text {
 
 input.chat.input {
 	border: 1px solid;
-	bottom: 1px;
+	bottom: 0px;
 	position:absolute;
 	width: -webkit-calc(100% - 69px);
     width: calc(100% - 69px);
     left: 3px;
-	padding:1px;
+	padding:0px;
 	font-size: 12pt;
 }
 
